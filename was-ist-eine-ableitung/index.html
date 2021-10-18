@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang=de>
+  <head>
+    <meta charset="utf-8">
+    <title>Was ist eine Ableitung?</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+    </style>
+  </head>
+  <body>
+    <h1>Was ist eine Ableitung?</h1>
+
+    <a href=".." rel="author">Markus Schlegel</a>
+
+    <p>
+    Ich lese
+    gerade <a href="http://conal.net/papers/essence-of-ad/essence-of-ad-icfp.pdf">The
+    Simple Essence of Automatic Differentiation</a> von Conal Elliott.
+    Das Paper beschreibt, was automatisches Differenzieren eigentlich
+    bedeutet; nicht primär, wie man es implementiert, sondern, was es
+    bedeutet. Eine Implementierung fällt dabei fast schon beiläufig
+    mit raus. Um zu verstehen, was automatisches Ableiten bedeutet,
+    muss man zunächst verstehen, was überhaupt eine Ableitung bedeutet
+    und hier liefert das Paper direkt einen bemerkenswerten Gedanken,
+    denn was eine Ableitung ist – sollte man im ersten Moment meinen –
+    müsste doch jedem Menschen, der einen Mathematikunterricht in
+    seinem Leben besucht hat, verständlich sein. Das ist aber genau
+    nicht so, denn im Mathematikunterricht kommt zwar das
+    Wort <i>Ableitung</i> oft vor, aber man erfährt nie, was es
+    eigentlich ist. Man erfährt, wie man eine Ableitung berechnet,
+    aber das ist nicht dasselbe wie zu wissen, was sie ist und was sie
+    bedeutet. Man erfährt außerdem, dass die Ableitung einer Funktion,
+    die reelle Zahlen auf reelle Zahlen abbildet, als Steigung der
+    Kurve, die diese Funktion beschreibt, interpretiert werden kann.
+    Abgesehen davon, dass sich die Intuition der Steigung nicht viel
+    weiter verallgemeinern lässt, beispielsweise auf Funktionen
+    zwischen beliebigen Vektorräumen, ist die Interpretation der
+    Steigung schon durch die Notation wieder zunichte gemacht. Sei
+    beispielsweise die Funktion <code>f(x) = x<sup>2</sup></code>
+    gegeben. Wir sagen dann, dass die Ableitung dieser Funktion
+    beispielsweise an der Stelle <code>x = 3</code>
+    schlicht <code>6</code> sei, mit dem Hinweis darauf, dass die
+    Steigung der Kurve von <code>x<sup>2</sup></code> an der
+    Stelle <code>3</code> eben gerade <code>6</code> sei. Aber die
+    Steigung ist ja nicht <code>6.</code> Was soll das überhaupt
+    bedeuten? Um eine Lehrperson, die so was sagt, herauszufordern,
+    könnte man ja einfach mal behaupten, nein, die Steigung ist nicht
+    6, sondern <code>Nudelsuppe.</code> Diese Behauptung ist
+    offensichtlich absurd. Nudelsuppe ist zunächst ja nur ein
+    beliebiges Wort, wie kann denn ein Wort eine Steigung sein? Na ja,
+    wie kann denn eine Zahl eine Steigung sein? Jetzt wird die
+    Mathelehrperson endlich herausrücken mit der Wahrheit. Sechs ist
+    die Steigung an der Stelle, weil, wenn ich eine Gerade durch
+    diesen Punkt und einen infinitesimal davon entfernten Punkt auf
+    der Kurve lege, dann ist diese Gerade beschrieben durch die
+    Funktion <code>g(y) = 6 * y.</code> Aha, und damit wäre dann auch
+    schon zugegeben, dass die Steigung eben doch nicht sechs ist,
+    sondern <code>6 *</code>, also eine Funktion.
+
+    <p>
+    Die Steigung ist eine lineare Funktion und keine Zahl. Wir
+    schreiben zwar eine Zahl als Steigung, aber das ist nur Notation,
+    denn da es sich um <i>lineare</i> Funktionen handelt, ist ja klar,
+    dass, wenn jemand <code>6</code> schreibt, eigentlich nur die
+    Funktion <code>6*</code> gemeint sein kann. Die schlichte
+    Zahl <i>repräsentiert</i> die Funktion; diese <i>ist</i> die
+    Steigung, während jene sie nur per Konvention beschreibt.
+    Insbesondere müssen wir die Funktion im weiteren Verlauf aber
+    immer mitdenken. Es ist nämlich ein Typfehler, wenn wir die
+    Zahl <code>6</code>, die eigentlich eine Funktion repräsentiert,
+    jetzt auf einmal addieren zu einer anderen Zahl, die aber wirklich
+    beispielsweise eine Länge repräsentiert. Etwas offensichtlicher
+    wird das, wenn wir die Achsen unseres Kurvendiagrams beschriften
+    und beispielsweise die x-Achse als Zeit in Sekunden und die
+    y-Achse als Länge in Metern verstehen. Die Steigung ist dann nicht
+    mehr einfach sechs, sondern umgangsprachlich »sechs Meter pro
+    Sekunde.« Bei <i>sechs Meter pro Sekunde</i> lässt sich gedanklich
+    viel weniger bequem verweilen, denn das <i>Meter pro Sekunde</i>
+    drückt den Funktionscharakter schon mit aus. »Gib mir eine Anzahl
+    von Sekunden und ich gebe dir eine Anzahl von Metern.« Das ist
+    eine Funktion. Und eine lineare Funktion ist es, was eine Steigung
+    ist.
+
+    <p>
+    Diese Einsicht – die Ableitung ist eine lineare Funktion – lässt
+    sich viel besser verallgemeinern als <i>Die Ableitung ist eine
+    Zahl.</i> In der Schule hat man beispielsweise gelernt, dass die
+    Ableitung einer Funktion, die von ℝ auf ℝ<sup>n</sup> abbildet,
+    ein n-stelliger Vektor ist. Aber wir sind jetzt schlauer. Die
+    Ableitung <i>ist</i> nicht ein n-stelliger Vektor, sondern sie
+    wird nur von einem solchen repräsentiert. Tatsächlich ist auch in
+    diesem höherdimensionalen Fall die Ableitung weiterhin eine
+    lineare Abbildung.
+
+    <p>
+    Das, was hier auf der Metaebene passiert – das, worin Conal
+    Elliott ein Meister ist – nennt sich Abstraktion.
+    Erstaunlicherweise ist Abstraktion im Mathematikunterricht (und
+    vielleicht sogar in der Mathematik selbst) nie thematisch.
+    Abstraktion ist thematisch in der Philosophie und in der
+    funktionalen Programmierung. Dabei ist Abstraktion das, was
+    wirkliches Verständnis bedingt und gehört damit eigentlich in
+    jedem Fach zur Sprache gebracht. Man weiß etwas erst, wenn man
+    einen abstrakten Begriff davon hat. Man weiß noch nicht, was eine
+    Ableitung ist, wenn man nur weiß, wie man eine Ableitung in
+    verschiedenen Fällen repräsentiert. Es ist noch kein Wissen, wenn
+    man sagt »Die Ableitung, das ist in dem Fall eine Zahl, in diesem
+    Fall ein Vektor und in diesem Fall eine Matrix.« Erst, wenn man
+    sich der Gemeinsamkeit dieser Fälle bewusst ist, erst wenn
+    man <i>die Identität in der Mannigfaltigkeit</i> gefunden hat,
+    dann weiß man etwas.
+
+  </body>
+</html>

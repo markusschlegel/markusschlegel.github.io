@@ -1,0 +1,101 @@
+@font-face {
+	font-family: 'HCo Quarto';
+	src:url('./woff2/Quarto-Semibold_Web.woff2') format('woff2'),
+		url('./woff/Quarto-Semibold_Web.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'HCo Ringside Regular';
+	src:url('./woff2/RingsideRegular-Light_Web.woff2') format('woff2'),
+		url('./woff/RingsideRegular-Light_Web.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'HCo Ringside Regular';
+	src:url('./woff2/RingsideRegular-Bold_Web.woff2') format('woff2'),
+		url('./woff/RingsideRegular-Bold_Web.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'HCo Chronicle Text G2';
+	src:url('./woff2/ChronicleTextG2-Roman-Pro_Web.woff2') format('woff2'),
+		url('./woff/ChronicleTextG2-Roman-Pro_Web.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'HCo Chronicle Text G2';
+	src:url('./woff2/ChronicleTextG2-Italic-Pro_Web.woff2') format('woff2'),
+		url('./woff/ChronicleTextG2-Italic-Pro_Web.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
+}
+
+body {
+    max-width: 720px;
+    margin: 42px auto;
+    padding: 32px;
+    font: 17px/24px "HCo Chronicle Text G2";
+    font-weight: 400;
+    font-style: normal;
+    color: #222;
+}
+
+.abstract {
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+h1, h2, h3, h4 {
+    font-family: "HCo Quarto", Georgia, serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 72px;
+    line-height: 80px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 42px;
+    line-height: 48px;
+}
+
+* + h2 {
+    margin-top: 48px;
+}
+
+p {
+    text-align: justify;
+    -moz-hyphens: auto;
+    -o-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+a[rel=author] {
+    font: 18px/24px "HCo Ringside Regular";
+    font-weight: 300;
+    font-style: normal;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+h1 + * {
+    margin-top: 24px;
+}
+
+sup {
+    line-height: 0px;
+}
