@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang=de>
+  <head>
+    <meta charset="utf-8">
+    <title>Functional Reactive Programming as a tool of thought</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+    </style>
+  </head>
+  <body>
+    <h1>Functional Reactive Programming as a tool of thought</h1>
+
+    <a href=".." rel="author">Markus Schlegel</a>
+
+    <p>
+      I’ve been delving a bit deeper into functional reactive
+      programming lately. FRP is based on entities that have a very
+      simple model, which is functions of time:
+
+      <pre>
+        forall a. Time -> a
+      </pre>
+
+      These entities, called behaviours, behave exactly as their model
+      (functions of time) suggests. You can compose behaviours just
+      like you can compose functions. For example, you can combine a
+      behaviour <code>Time -> a</code> with a function that translates
+      singular values <code>a -> b</code> to obtain a
+      behaviour <code>Time -> b</code>.
+
+      As a user of FRP, you don’t have to learn anything new. If you
+      know how to deal with functions <code>a -> b</code>, you know
+      how to deal with a more concrete type <code>Time -> a</code>.
+      This is wonderful but it also begs the question: What’s the big
+      deal then?
+
+      <h2>The big deal</h2>
+
+      Functional programming is about pure functions. Functional
+      programmers argue that since functions are both simple and
+      far-reaching (due to composition) everyone should be programming
+      with pure functions all the time. «But in the end» the naysayers
+      go «in the end you’ll have to perform imperative effects to,
+      well, have an effect on the real world. Why bother with purity,
+      when you can’t have it everywhere?» In order to deal with this
+      criticism, functional programmers retracted to a less
+      fundamentalist position: You should use pure functions in the
+      core of your software and you are allowed to use dirty
+      imperative programming in the shell that shields your program
+      from the real world. Functional core, imperative shell. In
+      Haskell, this imperative shell is all the code that deals
+      with <code>IO a</code>, in Clojure or Scheme-like languages it’s
+      interpreters and DSL runtimes.
+
+      Conal Elliott, the creator of FRP, argues that this truce is not
+      acceptable. Instead of giving up in face of the so-called
+      real-world, we should analyze what the concept of effects
+      actually means. An effect is a mutation of (some part of) the
+      world and we already know how to deal with mutations in
+      functional programming.
+
+  </body>
+</html>
